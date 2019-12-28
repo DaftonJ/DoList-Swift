@@ -12,8 +12,14 @@ class ToDoViewController: UITableViewController {
 
     var items = ["Buy Milk", "Go for a Walk","Eat something"]
     
+    var defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let itemsArray = defaults.array(forKey: "ToDoItems") as? [String]
+        {
+            items = itemsArray
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -52,6 +58,9 @@ class ToDoViewController: UITableViewController {
             if (textfield.text != "" && textfield.text != nil)
             {
                 self.items.append(textfield.text!)
+                
+                self.defaults.set(self.items, forKey: "ToDoItems")
+                
                 self.tableView.reloadData()
             }
         }
