@@ -49,12 +49,12 @@ class CategoriesViewController: UITableViewController {
     }
      @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
             
-                       var textfield = UITextField()
+        var textfield = UITextField()
                        
-                       let alert = UIAlertController(title: "Add New To Do Category", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add New To Do Category", message: nil, preferredStyle: .alert)
         
-                       let action = UIAlertAction(title: "Add", style: .default) { (UIAlertAction) in
-                           if (textfield.text != "" && textfield.text != nil)
+        let action = UIAlertAction(title: "Add", style: .default) { (UIAlertAction) in
+                            if (textfield.text != "" && textfield.text != nil)
                            {
                             let newCategory = Category(context: self.context)
                                newCategory.name = textfield.text!
